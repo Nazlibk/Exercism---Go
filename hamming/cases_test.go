@@ -64,4 +64,10 @@ var testCases = []struct {
 		0,
 		true,
 	},
+	{ // single letter different strands
+		"aüa",
+		"aaa",
+		1,
+		false,
+	},
 }
