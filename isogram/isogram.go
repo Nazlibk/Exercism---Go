@@ -5,18 +5,18 @@ import (
 	"unicode"
 )
 
+// IsIsogram is gettinga String and return boolean
 func IsIsogram(word string) bool {
 	word = strings.ToLower(word)
-	charsCount := make(map[rune]int)
-	wordr := []rune(word)
-	for _, c := range wordr {
-		if unicode.IsLetter(c) {
-			if _, ok := charsCount[c]; ok {
-				return false
-			}
-			charsCount[c]++
-
+	charsCount := map[rune]bool{}
+	for _, c := range word {
+		if !unicode.IsLetter(c) {
+			continue
 		}
+		if charsCount[c] {
+			return false
+		}
+		charsCount[c] = true
 	}
 	return true
 }
